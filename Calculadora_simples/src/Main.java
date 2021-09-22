@@ -3,8 +3,6 @@ import java.util.Scanner;
 public class Main {
 
 	static Scanner sc = new Scanner(System.in);
-	static double x = 0.0;
-	static double y = 0.0;
 	
 	public static void main(String[] args) {
 		int op = 0;
@@ -12,22 +10,25 @@ public class Main {
 		System.out.println("\tCalculadora Simples\n");
 		do {
 			menu();
-			System.out.print("\nDigite uma opção: ");
+			System.out.print("\nDigite uma opcao: ");
 			op = sc.nextInt();
 			
 			switch (op) {
-			case 0: 
-				break;
-				
-			case 1:{
-				atribuir();
-				System.out.println(Operacao.adicao(x, y));
-				break;
-			}
-				
-			
-			default:
-				System.out.println("Opção inválida! novamente.");
+				case 0:
+					break;
+
+				case 1:
+					Operacao.adicao();
+					break;
+
+				case 2:
+					Operacao.subtracao();
+					break;
+
+				default:
+					System.out.println("Opcao invalida! novamente.");
+					break;
+
 			}
 			System.out.println();
 
@@ -37,18 +38,10 @@ public class Main {
 	}
 
 	public static void menu() {
-		System.out.println("1- Adição");
-		System.out.println("2- Subtração");
-		System.out.println("3- Multiplicação");
-		System.out.println("4- Divisão");
+		System.out.println("1- Adicao");
+		System.out.println("2- Subtracao");
+		System.out.println("3- Multiplicacao");
+		System.out.println("4- Divisao");
 		System.out.println("0- Sair");
 	}
-	
-	public static void atribuir() {
-		System.out.print("Digite o primeiro número: ");
-		x = sc.nextDouble();
-		System.out.print("Digite o segundo número: ");
-		y = sc.nextDouble();
-	}
-
 }
