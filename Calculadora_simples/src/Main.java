@@ -10,7 +10,7 @@ public class Main {
 		System.out.println("\tCalculadora Simples\n");
 		do {
 			menu();
-			System.out.print("\nDigite uma opcao: ");
+			System.out.print("Digite uma opcao: ");
 			op = sc.nextInt();
 			
 			switch (op) {
@@ -24,7 +24,15 @@ public class Main {
 				case 2:
 					Operacao.subtracao();
 					break;
-
+					
+				case 3:
+					Operacao.multiplicacao();
+					break;
+					
+				case 4: 
+					Operacao.divisao();
+					break;
+					
 				default:
 					System.out.println("Opcao invalida! novamente.");
 					break;
