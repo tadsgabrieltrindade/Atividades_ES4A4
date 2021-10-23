@@ -9,10 +9,10 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		
-		final int Adição = 1;
-		final int subtração = 2;
-		final int multiplicação = 3;
-		final int divisão = 4;
+		final int Adicao = 1;
+		final int subtracao = 2;
+		final int multiplicacao = 3;
+		final int divisao = 4;
 		final int sair = 0;
 		
 		int op = 0; 
@@ -22,20 +22,20 @@ public class Main {
 			try {
 				op = input.nextInt();
 				switch(op) {
-					case Adição:
+					case Adicao:
 						Operations.adicao();
 						break;
-					case subtração:
+					case subtracao:
 						Operations.subtracao();
 						break;
-					case divisão:
+					case divisao:
 						Operations.divisao();
 						break;
-					case multiplicação:
+					case multiplicacao:
 						Operations.multiplicacao();
 						break;
 					default:
-						System.out.println("Operação invalida!!");
+						System.out.println("Operacao invalida!!");
 						
 				}
 			}catch(Exception e) {

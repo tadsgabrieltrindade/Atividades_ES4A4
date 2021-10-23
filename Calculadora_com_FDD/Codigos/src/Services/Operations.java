@@ -16,7 +16,13 @@ public class Operations {
 	    }
 	 
 	 
-	public static void subtracao() {}
+	public static void subtracao() {
+	 	n1 = num1.nextInt(MAX);
+	 	n2 = num1.nextInt(MAX);
+
+		System.out.println(n1+" - "+ n2+ " = "+ (n1-n2));
+	}
+
 	public static void divisao() {
 		n1 = num1.nextInt(MAX);
 		do {
@@ -26,6 +32,12 @@ public class Operations {
 		System.out.println(n1+" / "+ n2+ " = "+ (float)(n1/n2));
 		
 	}
-	public static void multiplicacao() {}
+
+	public static void multiplicacao() {
+	 	n1 = num1.nextInt(MAX);
+	 	n2 = num1.nextInt(MAX);
+
+		System.out.println(n1+" * "+ n2+ " = "+ (n1*n2));
+	}
 
 }
