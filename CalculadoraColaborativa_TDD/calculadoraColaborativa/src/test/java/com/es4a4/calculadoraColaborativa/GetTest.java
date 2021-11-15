@@ -55,5 +55,15 @@ public class GetTest {
 		PostDweet.post("dividir", 10, 5);
 		assertEquals(list, GetDweet.get("es4a4-fgmtem"));
 	}
+
+	@Test
+	public void testarGetRaizDweet() {
+		List<String> list = new ArrayList<>();
+		list.add("raiz");
+		list.add("10");
+		list.add("5");
+		PostDweet.post("raiz", 10, 5);
+		assertEquals(list, GetDweet.get("es4a4-fgmtem"));
+	}
 }
 
