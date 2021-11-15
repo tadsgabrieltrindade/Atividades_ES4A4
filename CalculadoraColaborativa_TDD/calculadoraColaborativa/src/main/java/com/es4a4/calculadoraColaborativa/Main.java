@@ -14,6 +14,7 @@ public class Main {
 		List<String> p = GetDweet.get("es4a4-fgmtem");
 		Integer num1 = 0;
 		Integer num2 = 0;
+		Double resultado = 0.0;
 		String opcao = "";
 		do {
 			Menu();
@@ -26,10 +27,12 @@ public class Main {
 			// aqui é uma espécie de verificar se alguma outra instância da calculadora fez
 			// algum post.
 			p = GetDweet.get("es4a4-fgmtem");
-			if (!(p.get(0).equals(opcao) && p.get(1).equals(num1.toString()) && p.get(2).equals(num2.toString()))) {
-				System.out.println("\n******************\n\tResultado de uma outra calculadora (instância):");
-				result(p);
-				System.out.println("\n******************");
+			if (p != null) {
+				if (!(p.get(0).equals(opcao) && p.get(1).equals(num1.toString()) && p.get(2).equals(num2.toString()))) {
+					System.out.println("\n******************\n\tResultado de uma outra calculadora (instância):");
+					result(p);
+					System.out.println("\n******************");
+				}
 			}
 
 			System.out.print("\nDigite o 1º número: ");
@@ -45,8 +48,14 @@ public class Main {
 
 				// recuperar do dweet
 				p = GetDweet.get("es4a4-fgmtem");
-				result(p);
+				resultado = result(p);
 
+				System.out.print("Deseja realizar raiz quadrada com o valor da operação anterior? (s/n): ");
+				opcao = input.next();
+
+				if (opcao.equals("s")) {
+					Operations.raiz(resultado);
+				}
 			} else {
 				System.out.println("Tente novamente! Algum dado de entrada inválido.");
 			}
@@ -66,27 +75,29 @@ public class Main {
 		System.out.println("- Sair");
 	}
 
-	public static void result(List<String> p) {
+	public static double result(List<String> p) {
 		System.out.println("\n- Operação Recebida: " + p.get(0));
 		System.out.println("- 1º número recebido: " + p.get(1));
 		System.out.println("- 2º número recebido: " + p.get(2));
 		System.out.println("- Cálculo:");
+		double resultado = 0;
 		switch (p.get(0)) {
 		case "somar":
-			Operations.adicao(Integer.parseInt(p.get(1)), Integer.parseInt(p.get(2)));
+			resultado = Operations.adicao(Integer.parseInt(p.get(1)), Integer.parseInt(p.get(2)));
 			break;
 		case "subtrair":
-			Operations.subtracao(Integer.parseInt(p.get(1)), Integer.parseInt(p.get(2)));
+			resultado = Operations.subtracao(Integer.parseInt(p.get(1)), Integer.parseInt(p.get(2)));
 			break;
 		case "multiplicar":
-			Operations.multiplicacao(Integer.parseInt(p.get(1)), Integer.parseInt(p.get(2)));
+			resultado = Operations.multiplicacao(Integer.parseInt(p.get(1)), Integer.parseInt(p.get(2)));
 			break;
 		case "dividir":
-			Operations.divisao(Integer.parseInt(p.get(1)), Integer.parseInt(p.get(2)));
+			resultado = Operations.divisao(Integer.parseInt(p.get(1)), Integer.parseInt(p.get(2)));
 			break;
 		default:
 			System.out.println("Operacao invalida!!");
 		}
+		return resultado;
 	}
 
 }
